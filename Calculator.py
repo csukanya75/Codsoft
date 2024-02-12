@@ -7,20 +7,11 @@ def press(num):
 def equalpress(): 
 	
 	try: 
-
 		global expression 
-
-		
-		total = str(eval(expression)) 
-
+		total = str(eval(expression))
 		equation.set(total) 
-
-		
 		expression = "" 
-
-	
-	except: 
-
+	except:
 		equation.set(" error ") 
 		expression = "" 
 def clear(): 
@@ -28,35 +19,17 @@ def clear():
 	expression = "" 
 	equation.set("") 
 
-
-
 if __name__ == "__main__": 
 	gui = Tk() 
 	gui.configure(background="white") 
 	gui.title("Calculator") 
 	gui.geometry("500x500") 
-
-	# StringVar() is the variable class 
-	# we create an instance of this class 
 	equation = StringVar() 
-
-	# create the text entry box for 
-	# showing the expression . 
 	expression_field = Entry(gui, textvariable=equation) 
-
-	# grid method is used for placing 
-	# the widgets at respective positions 
-	# in table like structure . 
-	expression_field.grid(columnspan=5, ipadx=25, ipady = 25)
-
-	# create a Buttons and place at a particular 
-	# location inside the root window . 
-	# when user press the button, the command or 
-	# function affiliated to that button is executed . 
+	expression_field.grid(columnspan=5, ipadx=25, ipady = 25
 	button1 = Button(gui, text=' 1 ', fg='black', bg='grey', 
 					command=lambda: press(1), height=5, width=15) 
 	button1.grid(row=2, column=0) 
-
 	button2 = Button(gui, text=' 2 ', fg='black', bg='grey', 
 					command=lambda: press(2), height=5, width=15) 
 	button2.grid(row=2, column=1) 
@@ -120,5 +93,4 @@ if __name__ == "__main__":
 	Decimal= Button(gui, text='.', fg='black', bg='grey', 
 					command=lambda: press('.'), height=5, width=15) 
 	Decimal.grid(row=6, column=0) 
-	# start the GUI 
 	gui.mainloop() 
